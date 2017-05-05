@@ -11,9 +11,7 @@ class PolyTreeNode
     previous_parent = @parent
     @parent = other_node
 
-    unless previous_parent.nil?
-      previous_parent.children.delete(self)
-    end
+    previous_parent.children.delete(self) if previous_parent
 
     return if other_node.nil?
     other_node.children << self unless other_node.children.include?(self)
